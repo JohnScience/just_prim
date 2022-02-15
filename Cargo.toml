@@ -1,0 +1,13 @@
+[package]
+name = "just_prim"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+just_prim_int = "0.1.1"
+
+[features]
+marker_trait_attr = ["just_prim_int/marker_trait_attr"]
+never_type = []
