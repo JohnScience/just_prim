@@ -1,3 +1,4 @@
+#![doc = include_str!("../README.md")]
 #![cfg_attr(feature = "marker_trait_attr", feature(marker_trait_attr))]
 #![cfg_attr(feature = "never_type", feature(never_type))]
 #![no_std]
