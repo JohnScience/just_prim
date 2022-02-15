@@ -60,6 +60,8 @@ mod prim_signed_int {
     impl PrimSignedInt for isize {}
 }
 
+/// [Marker trait](https://blog.rust-lang.org/2015/05/11/traits.html#:~:text=Markers.,both%20generics%20and%20trait%20objects.)
+/// for [primitive floating point types](https://doc.rust-lang.org/reference/types/numeric.html#floating-point-types)
 #[cfg_attr(feature = "marker_trait_attr", marker)]
 pub trait PrimFloat: PrimNum {}
 
@@ -74,6 +76,8 @@ mod prim_float_impl {
     impl crate::PrimFloat for f64 {}
 }
 
+/// [Marker trait](https://blog.rust-lang.org/2015/05/11/traits.html#:~:text=Markers.,both%20generics%20and%20trait%20objects.)
+/// for [primitive numeric types](https://doc.rust-lang.org/reference/types/numeric.html).
 #[cfg_attr(feature = "marker_trait_attr", marker)]
 pub trait PrimNum: Prim {}
 
@@ -97,12 +101,16 @@ mod prim_num_impl {
     impl crate::PrimNum for f64 {}
 }
 
+/// [Marker trait](https://blog.rust-lang.org/2015/05/11/traits.html#:~:text=Markers.,both%20generics%20and%20trait%20objects.)
+/// for [primitive textual types](https://doc.rust-lang.org/reference/types/textual.html)
 #[cfg_attr(feature = "marker_trait_attr", marker)]
 pub trait PrimTextual {}
 
 impl PrimTextual for char {}
 impl PrimTextual for str {}
 
+/// [Marker trait](https://blog.rust-lang.org/2015/05/11/traits.html#:~:text=Markers.,both%20generics%20and%20trait%20objects.)
+/// for [primitive types](https://doc.rust-lang.org/reference/types.html)
 #[cfg_attr(feature = "marker_trait_attr", marker)]
 pub trait Prim {}
 
@@ -142,13 +150,4 @@ mod prim_impl {
 
     #[cfg(feature = "never_type")]
     impl crate::Prim for ! {}
-}
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        let result = 2 + 2;
-        assert_eq!(result, 4);
-    }
 }
