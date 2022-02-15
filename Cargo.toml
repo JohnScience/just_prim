@@ -1,13 +1,47 @@
 [package]
 name = "just_prim"
 version = "0.1.0"
+authors = ["Dmitrii Demenev <demenev.dmitriy1@gmail.com>"]
 edition = "2021"
+rust-version = "1.56.1" # https://github.com/foresterre/cargo-msrv
+description = "Marker traits for primitive types"
+documentation = "https://docs.rs/just_prim"
+readme = "README.md"
+repository = "https://github.com/JohnScience/just_prim"
+license = "MIT OR Apache-2.0"
+# license-file | not needed
+keywords = ["primitive"]
+categories = ["no-std"]
+# workspace | not needed
+# build | not needed
+# links | not needed
+# exclude | not needed
+include = [
+    "/Cargo.toml",
+    "/LICENSE_APACHE",
+    "/LICENSE_MIT",
+    "/README.md",
+    "/src/**",
+    "/tests/**",
+]
+# publish | not needed
+# metadata | not needed
+# default-run | not needed
+autobins = false
+autoexamples = false
+autotests = false
+autobenches = false
+# resolver | not needed
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-just_prim_int = "0.1.1"
 
 [features]
-marker_trait_attr = ["just_prim_int/marker_trait_attr"]
+marker_trait_attr = []
 never_type = []
+
+[package.metadata.docs.rs]
+features = ["marker_trait_attr", "never_type"]
+# https://github.com/RustCrypto/traits/blob/941614d788506abc893508405bcdd683aa9cb58c/elliptic-curve/Cargo.toml#L64
+rustdoc-args = ["--cfg", "docsrs"]

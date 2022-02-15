@@ -1,6 +1,7 @@
 #![doc = include_str!("../README.md")]
 #![cfg_attr(feature = "marker_trait_attr", feature(marker_trait_attr))]
 #![cfg_attr(feature = "never_type", feature(never_type))]
+#![cfg_attr(docsrs, feature(doc_cfg))]
 #![no_std]
 
 pub use {prim_signed_int::PrimSignedInt, prim_unsigned_int::PrimUnsignedInt};
@@ -139,6 +140,7 @@ mod prim_impl {
     impl crate::Prim for char {}
     impl crate::Prim for str {}
 
+    #[cfg_attr(docsrs, doc(cfg(feature = "never_type")))]
     #[cfg(feature = "never_type")]
     impl crate::Prim for ! {}
 }
@@ -149,6 +151,7 @@ mod prim_impl {
     impl<T: crate::PrimNum> crate::Prim for T {}
     impl<T: crate::PrimTextual> crate::Prim for T {}
 
+    #[cfg_attr(docsrs, doc(cfg(feature = "never_type")))]
     #[cfg(feature = "never_type")]
     impl crate::Prim for ! {}
 }
